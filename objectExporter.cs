@@ -28,7 +28,7 @@ public class objectExporter : EditorWindow {
         MeshFilter mf;
         Material[] mats;
         Material mat;
-        Vector3 vW;
+        Vector3 v;
         int[] tr;
         int o = 1;
         for (int i = 0; i < meshFilters.Length; i++)
@@ -42,16 +42,12 @@ public class objectExporter : EditorWindow {
             mats = mf.gameObject.GetComponent<Renderer>().sharedMaterials;
             for (int j = 0; j < m.vertexCount; j++) 
             {
-                vW = m.vertices[j];
-                vW = mf.transform.TransformPoint(vW);
-                vs.AppendFormat("v {0} {1} {2}", vW.x, vW.y, vW.z).AppendLine();
-            }
-            foreach (Vector3 v in m.normals)
-            {
+                v = m.vertices[j];
+                v = mf.transform.TransformPoint(v);
+                vs.AppendFormat("v {0} {1} {2}", v.x, v.y, v.z).AppendLine();
+                v = m.normals[j];
                 vns.AppendFormat("vn {0} {1} {2}", v.x, v.y, v.z).AppendLine();
-            }
-            foreach (Vector3 v in m.uv)
-            {
+                v = m.uv[j];
                 vts.AppendFormat("vt {0} {1}", v.x, v.y).AppendLine();
             }
             for (int u = 0; u < m.subMeshCount; u++)
