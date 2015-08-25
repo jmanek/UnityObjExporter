@@ -1,5 +1,5 @@
 # UnityObjExporter
-Exports a gameObject hierarchy to .obj/.mtl
+gameObject hierarchy to .obj/.mtl
 ========
 An Editor script that parses through a gameObject and all its children, creating an .obj and .mtl file.  Right now it only supports MeshFilters, and material support is limited to diffuse color (_Color) and texture (_MainTex).
 
