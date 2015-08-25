@@ -44,15 +44,15 @@ public class objectExporter : EditorWindow {
             {
                 vW = m.vertices[j];
                 vW = mf.transform.TransformPoint(vW);
-                vs.AppendFormat("v {0} {1} {2}\n", vW.x, vW.y, vW.z).AppendLine();
+                vs.AppendFormat("v {0} {1} {2}", vW.x, vW.y, vW.z).AppendLine();
             }
             foreach (Vector3 v in m.normals)
             {
-                vns.AppendFormat("vn {0} {1} {2}\n", v.x, v.y, v.z).AppendLine();
+                vns.AppendFormat("vn {0} {1} {2}", v.x, v.y, v.z).AppendLine();
             }
             foreach (Vector3 v in m.uv)
             {
-                vts.AppendFormat("vt {0} {1}\n", v.x, v.y).AppendLine();
+                vts.AppendFormat("vt {0} {1}", v.x, v.y).AppendLine();
             }
             for (int u = 0; u < m.subMeshCount; u++)
             {
@@ -61,11 +61,11 @@ public class objectExporter : EditorWindow {
                 {
                     mtls.Add(mat);
                 }
-                fs.AppendFormat("usemtl {0}\n", mat.name).AppendLine();
+                fs.AppendFormat("usemtl {0}", mat.name).AppendLine();
                 tr = m.GetTriangles(u);
                 for (int k = 0; k < tr.Length; k += 3)
                 {
-                    fs.AppendFormat("f {0}/{0}/{0} {1}/{1}/{1} {2}/{2}/{2}\n",
+                    fs.AppendFormat("f {0}/{0}/{0} {1}/{1}/{1} {2}/{2}/{2}",
                         tr[k] + o, tr[k + 1] + o, tr[k + 2] + o).AppendLine();
                 }
             }
