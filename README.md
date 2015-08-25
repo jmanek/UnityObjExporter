@@ -10,11 +10,11 @@ As this suggests, the script starts from the selected gameObject, and traverses 
 Let it run -- I've found it to be decently fast even when creating .obj's with 500k verts (70MB)
 The .obj/.mtl and all textures are exported to Assets/objExport/gameObjectName.  
 This can be changed by modifying the line:
-'''C#
+'''c#
 string dir = Path.Combine(Application.dataPath, "objExport/" + gO.name);
 '''
 Support for additional shader properties can be added by modifying the function BuildMtl:
-'''C#
+'''c#
 if (m.HasProperty("_Color"))
 {
     Color c = m.GetColor("_Color");
